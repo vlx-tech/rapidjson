@@ -130,7 +130,9 @@ ELSEIF(WIN32)
 ENDIF()
 SET(CMAKE_INSTALL_DIR "${_CMAKE_INSTALL_DIR}" CACHE PATH "The directory cmake fiels are installed in")
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_library(rapidjson INTERFACE)
+target_include_directories(rapidjson INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>)
 
 if(RAPIDJSON_BUILD_DOC)
     add_subdirectory(doc)
