@@ -144,7 +144,7 @@
    
    Simple yet most efficient way to achieve that is to modify the `address` definition above to initialize it with allocator of the `person` document, then we just add the root member of the value:
    ~~~~~~~~~~cpp
-   Document address(person.GetAllocator());
+   Document address(&person.GetAllocator());
    ...
    person["person"].AddMember("address", address["address"], person.GetAllocator());
    ~~~~~~~~~~
@@ -236,7 +236,7 @@ Alternatively, if we don't want to explicitly refer to the root value of `addres
 
 4. What is BOM? How RapidJSON handle it?
 
-   [Byte order mark (BOM)](http://en.wikipedia.org/wiki/Byte_order_mark) sometimes reside at the beginning of file/stream to indiciate the UTF encoding type of it.
+   [Byte order mark (BOM)](http://en.wikipedia.org/wiki/Byte_order_mark) sometimes reside at the beginning of file/stream to indicate the UTF encoding type of it.
 
    RapidJSON's `EncodedInputStream` can detect/consume BOM. `EncodedOutputStream` can optionally write a BOM. See [Encoded Streams](doc/stream.md) for example.
 
