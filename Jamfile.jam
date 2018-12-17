@@ -1,8 +1,0 @@
-# rapidjson
-
-SubDir TOP external rapidjson ;
-
-SOURCES += $(SUBDIR)/empty.cpp ;
-
-C.IncludeDirectories * : include ;
-C.Library external-rapidjson : $(SOURCES) ;
